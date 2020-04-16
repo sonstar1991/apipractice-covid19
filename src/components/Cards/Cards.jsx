@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Card, CardContent, Typography, Grid } from "@material-ui/core";
+import { Card, CardContent, Typography, Grid, Container } from "@material-ui/core";
 
 import CountUp from "react-countup";
 
@@ -12,7 +12,8 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
   }
 
   return (
-    <div className="container">
+    <div className={Container}>
+      
       <Grid container spacing={3} justify="center">
         <Card>
           <CardContent>

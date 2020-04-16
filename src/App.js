@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       data: {},
+      country: "",
     };
   }
 
@@ -18,14 +19,28 @@ class App extends Component {
     this.setState({ data: getData });
   }
 
+
+  handleCountryChange= async(country)=>{
+    const getData =await fetchData(country)
+
+    console.log(getData)
+    //set state
+    this.setState({data:getData, country})
+  }
+
+
+
+
+
+
   render() {
-const {data} = this.state
-// console.log(data)
+    const { data,country } = this.state;
+    // console.log(data)
     return (
       <div className="App">
         <Cards data={data} />
-        <CountryPicker />
-        <Chart />
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
+        <Chart data={data} country={country}/>
       </div>
     );
   }
